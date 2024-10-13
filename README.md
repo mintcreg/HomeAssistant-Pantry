@@ -41,7 +41,7 @@ FAQ: [Read Here](FAQ.md).
 <summary>Open Screenshots</summary>
 <br>
   
-![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/main.png?raw=true)
+![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/Main.png?raw=true)
 
 ![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/generate.png?raw=true)
 
