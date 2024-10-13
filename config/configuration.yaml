@@ -1,0 +1,52 @@
+#dnr
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.30.33.0/24
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+websocket_api:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+#recorder: !include_dir_merge_named tidy/recorder.yaml
+#logbook: !include_dir_merge_named tidy/logbook.yaml
+#sensor: !include_dir_merge_named sensors
+input_number: !include stock/inventory.yaml
+
+
+homeassistant:
+  customize:
+    input_number.stock_pantry_pepsi_max:
+      product_image: "https://www.pinclipart.com/picdir/middle/163-1634288_pepsi-transparent-background-pepsi-max-can-png-clipart.png"
+      assoc_cat: "juice"
+    input_number.stock_pantry_costco_water:
+      product_image: "https://www.costco.com.au/medias/sys_master/images/h4a/h19/17572076519454.jpg"
+      assoc_cat: "juice"
+    input_number.stock_pantry_highland_spring_water:
+      product_image: "https://www.costco.co.uk/medias/sys_master/images/hc9/h5f/104215921688606.webp"
+      assoc_cat: "juice"
+    input_number.stock_pantry_fanta:
+      product_image: "https://clipground.com/images/fanta-png-3.jpg"
+      assoc_cat: "juice"
+    input_number.stock_pantry_fresh_oj:
+      product_image: "https://aldprdproductimages.azureedge.net/media/resized/$Aldi_GB/01.11.23/4088600041933_0_XL.jpg"
+      assoc_cat: "juice"
+    input_number.stock_pantry_summer_fruits:
+      product_image: "https://www.trolley.co.uk/img/product/BWV416"
+      assoc_cat: "juice"
+    input_number.stock_pantry_juice:
+      product_category: "juice"
+      
+  
+# Spotify integration - 
+spotcast:
+  sp_dc: !secret sp_dc
+  sp_key: !secret sp_key
