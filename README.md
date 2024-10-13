@@ -38,10 +38,21 @@ FAQ: [Read Here](FAQ.md).
 ``` 
  ** *Note, this is not guaranteed secure in anyway shape or form* **
 
-## Screenshots
+## Screenshots & Video
 
 <details>
 <summary>Open Screenshots</summary>
+<br>
+  
+![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/Main.png?raw=true)
+
+![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/generate.png?raw=true)
+
+![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/edit.png?raw=true)
+<br><br>
+
+<details>
+<summary>Open Video</summary>
 <br>
   
 ![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/Main.png?raw=true)
