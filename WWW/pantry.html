@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantry Manager</title>
     <style>
+        /* Your existing styles */
         body {
             font-family: 'Segoe UI', sans-serif;
             background-color: #f4f4f9;
@@ -269,22 +270,35 @@
         dropdownContainer.style.display = dropdownContainer.style.display === 'block' ? 'none' : 'block';
     }
 
-    const homeAssistantToken = 'XXX';  // Replace with your Home Assistant token
-    const baseUrl = 'XXX';  // Replace with your Home Assistant URL
+    const homeAssistantToken = 'LONGLIVEACCESSTOKEN';  // Replace with your Home Assistant token
+    const baseUrl = 'https://yourexternalurl.com';  // Replace with your Home Assistant URL
 
     const fetchProducts = async () => {
-        const response = await fetch(`${baseUrl}/api/states`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${homeAssistantToken}`,
-                'Content-Type': 'application/json'
-            }
-        });
-        const entities = await response.json();
-        const stockEntities = entities.filter(entity => entity.entity_id.startsWith('input_number.stock_'));
+        try {
+            const response = await fetch(`${baseUrl}/api/states`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${homeAssistantToken}`,
+                    'Content-Type': 'application/json'
+                }
+            });
 
-        if (stockEntities.length > 0) {
-            displayProducts(stockEntities);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch products: ${response.statusText}`);
+            }
+
+            const entities = await response.json();
+            const stockEntities = entities.filter(entity => {
+                return entity.entity_id.startsWith('input_number.stock_') && entity.attributes.min !== -10;
+            });
+
+            if (stockEntities.length > 0) {
+                displayProducts(stockEntities);
+            } else {
+                console.error('No stock entities found');
+            }
+        } catch (error) {
+            console.error('Error fetching products:', error);
         }
     };
 
@@ -293,23 +307,30 @@
         categoriesContainer.innerHTML = ''; // Clear existing content
 
         const categories = {};
+        let uncategorized = [];
 
         products.forEach(product => {
             const productName = formatProductName(product.entity_id);
-            const productImage = product.attributes.product_image || '';
-            const productCategory = product.attributes.assoc_cat || '';
+            const productImage = product.attributes.product_image || 'default-image.jpg'; // Provide a default image if missing
+            const productCategory = product.attributes.assoc_cat || null;
 
-            if (product.state === '-10') {
-                if (!categories[productName]) {
-                    categories[productName] = [];
+            if (productCategory) {
+                if (!categories[productCategory]) {
+                    categories[productCategory] = [];
                 }
+                categories[productCategory].push({
+                    productName,
+                    productImage,
+                    entityId: product.entity_id,
+                    quantity: product.state
+                });
             } else {
-                if (productCategory) {
-                    if (!categories[productCategory]) {
-                        categories[productCategory] = [];
-                    }
-                    categories[productCategory].push({ productName, productImage, entityId: product.entity_id, quantity: product.state });
-                }
+                uncategorized.push({
+                    productName,
+                    productImage,
+                    entityId: product.entity_id,
+                    quantity: product.state
+                });
             }
         });
 
@@ -355,6 +376,50 @@
             categoriesContainer.appendChild(categoryHeader);
             categoriesContainer.appendChild(categoryContent);
         });
+
+        // Only display the "Uncategorized" section if there are items without a category
+        if (uncategorized.length > 0) {
+            const uncategorizedHeader = document.createElement('div');
+            uncategorizedHeader.classList.add('category-header');
+            uncategorizedHeader.innerHTML = 'Uncategorized';
+            uncategorizedHeader.onclick = () => toggleCategory('uncategorized');
+
+            const uncategorizedContent = document.createElement('div');
+            uncategorizedContent.classList.add('category-content');
+            uncategorizedContent.id = 'category-uncategorized';
+
+            const table = document.createElement('table');
+            const tableHead = `
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Quantity Remaining</th>
+                        <th>Add/Remove</th>
+                    </tr>
+                </thead>
+            `;
+            const tableBody = document.createElement('tbody');
+            uncategorized.forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.productName}</td>
+                    <td><img src="${product.productImage}" alt="${product.productName}" class="product-image" /></td>
+                    <td id="quantity-${product.entityId}">${parseInt(product.quantity)}</td>
+                    <td class="add-remove-buttons">
+                        <button class="remove-btn" onclick="adjustQuantity('${product.entityId}', -1)">-</button>
+                        <button class="add-btn" onclick="adjustQuantity('${product.entityId}', 1)">+</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+            table.innerHTML = tableHead;
+            table.appendChild(tableBody);
+            uncategorizedContent.appendChild(table);
+
+            categoriesContainer.appendChild(uncategorizedHeader);
+            categoriesContainer.appendChild(uncategorizedContent);
+        }
     };
 
     const adjustQuantity = async (entityId, adjustment) => {
@@ -464,7 +529,7 @@
 
             if (isCategory) {
                 categories.push(productName); // Add to categories list if marked as a category
-                inputNumberYAML += `  stock_pantry_${productName}:\n    name: ${productName.replace(/_/g, ' ')}\n    min: -10\n    max: -10\n    initial: -10\n`;
+                inputNumberYAML += `  stock_pantry_${productName}:\n    name: ${productName.replace(/_/g, ' ')}\n    min: -10\n    max: 0\n    initial: -10\n`;
                 customizeYAML += `    input_number.stock_pantry_${productName}:\n      product_category: "${productName.replace(/_/g, ' ')}"\n`;
             } else {
                 inputNumberYAML += `  stock_pantry_${productName}:\n    name: ${productName.replace(/_/g, ' ')}\n    min: 0\n    max: 100\n    step: 1\n`;
@@ -506,7 +571,7 @@
             <input type="text" placeholder="Product Name" />
             <input type="text" placeholder="Image URL" />
             <select class="category-select">
-                <option value="">Select Category</option>
+                <option value="pantry">Pantry</option>
             </select>
             <label>
                 <input type="checkbox" class="category-checkbox"> Mark as Category
