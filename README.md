@@ -55,9 +55,9 @@ FAQ: [Read Here](FAQ.md).
 <summary>Open Video</summary>
 <br>
   
-![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/Main.png?raw=true)
 
-![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/generate.png?raw=true)
+https://github.com/user-attachments/assets/ec9a6066-6dd5-4468-8fb8-be37ace017fd
 
-![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/edit.png?raw=true)
+
+
 <br><br>
