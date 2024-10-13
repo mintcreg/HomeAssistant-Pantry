@@ -4,12 +4,21 @@ This is a simple HTML file hosted in WWW of HomeAssistant which will allow you t
 
 My use case meant that this wouldn't be something that's used heavily and therefore managing this via this GUI suits my needs, hopefully it does yours too if not then feel free to edit :)
 
-Requirements: 
+**Requirements**
 > Long Live Access Token
 
 > Remotely Accessible HA instance
 
 > Access to WWW folder
+
+**Features**
+
+> Product management
+> Stock Management
+> Sort by category (products are associated to their respective categories and will allow you to open/close)
+> Generate all YAML for products
+> Edit existing YAML configurations to remove/add products/categories
+
 
 **Install Steps**
 ```bash
