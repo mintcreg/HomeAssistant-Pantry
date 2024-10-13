@@ -1,6 +1,6 @@
 # simple_pantry
 
-This is a simple HTML file hosted in WWW of HomeAssistant which will allow you to create a simple pantry system to store products/categories and track amounts. 
+This is a simple HTML file hosted in WWW of HomeAssistant which will allow you to create a simple pantry system to store products/categories and track amounts using input numbers. 
 
 Requirements: 
 > Long Live Access Token
