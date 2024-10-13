@@ -1,4 +1,4 @@
-# Simple Pantry
+# HomeAssistant Pantry
 
 # Description
 The simple pantry is a HTML only file that uses the HA API via LongLiveAccess Tokens and can allow you to record products in your pantry. 
