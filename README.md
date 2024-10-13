@@ -1,5 +1,10 @@
 # Simple Pantry
 
+# Description
+The simple pantry is a HTML only file that uses the HA API via LongLiveAccess Tokens and can allow you to record products in your pantry. 
+
+This tool generates the required YAML structure for you and creates a webpage where all of your inventory can be stored (utilising input_numbers as the products/categories).
+
 **Features**
 - Responsive
 - Product Management
@@ -9,9 +14,7 @@
 - Edit existing YAML configurations to remove/add products/categories
 
   
-This is a simple HTML file hosted in WWW of HomeAssistant which will allow you to create a simple pantry system to store products/categories and track amounts using input numbers. 
 
-My use case meant that this wouldn't be something that's used heavily and therefore managing this via this GUI suits my needs, hopefully it does yours too if not then feel free to edit :)
 
 **Requirements**
 - Long Live Access Token
