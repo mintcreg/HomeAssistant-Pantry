@@ -19,7 +19,7 @@ My use case meant that this wouldn't be something that's used heavily and theref
 - Access to WWW folder
 
 
-
+FAQ: [Read Here](FAQ.md).
 
 **Install Steps**
 ```bash
