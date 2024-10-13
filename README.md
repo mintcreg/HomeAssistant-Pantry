@@ -24,3 +24,16 @@ Requirements:
   5: Place encrypted HTML file back in WWW and remove original pantry.html
 ``` 
  ** *Note, this is not guaranteed secure in anyway shape or form* **
+
+## Screenshots
+
+<details>
+<summary>Open Screenshots</summary>
+<br>
+  
+![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/main.png?raw=true)
+
+![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/generate.png?raw=true)
+
+![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/edit.png?raw=true)
+<br><br>
