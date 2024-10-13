@@ -9,18 +9,16 @@ Requirements:
 
 > Access to WWW folder
 
-Install Steps:
-> 1: Take the pantry.html and insert it into WWW (root or wherever you prefer)
+**Install Steps**
+```bash
+  1: Take the pantry.html and insert it into WWW (root or wherever you prefer)
+  
+  2: Create a Long Live Access Token (Profile > Security > Long Live Access Token)
+
+  3: Update pantry.html (const homeAssistantToken & const baseUrl) to your own variables.
+
+  4: Encode HTML file using https://pagecrypt.maxlaumeister.com/
  
-> 2: Create a Long Live Access Token (Profile > Security > Long Live Access Token)
-
-> 3: Update pantry.html (const homeAssistantToken & const baseUrl) to your own variables.
-
-> 4: Encode HTML file using https://pagecrypt.maxlaumeister.com/
-
-> 5: Place encrypted HTML file back in WWW and remove original pantry.html
-> 
- **Note, this is not guaranteed secure in anyway shape or form**
-
-
- 
+  5: Place encrypted HTML file back in WWW and remove original pantry.html
+``` 
+ ** *Note, this is not guaranteed secure in anyway shape or form* **
