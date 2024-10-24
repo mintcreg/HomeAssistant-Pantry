@@ -1,63 +1,46 @@
 # HomeAssistant Pantry
 
-# Description
-The simple pantry is a HTML only file that uses the HA API via LongLiveAccess Tokens and can allow you to record products in your pantry. 
+# ***NOTE THIS IS A WIP ***
 
-This tool generates the required YAML structure for you and creates a webpage where all of your inventory can be stored (utilising input_numbers as the products/categories).
+# Description
+This addon allows you to maintain products for your kitchen/pantry or whatever your use case may be. This utilised the HA API to create entities (which will be your products).
 
 **Features**
 - Responsive
 - Product Management
-- Stock Management
-- Sort by category (products are associated to their respective categories and will allow you to open/close)
-- Generate all YAML for products
-- Edit existing YAML configurations to remove/add products/categories
-
-  
-
-
-**Requirements**
-- Long Live Access Token
-- Remotely Accessible HA instance
-- Access to WWW folder
+- Category Management
+- Assign products to categories
+- Ingress
 
 
 FAQ: [Read Here](FAQ.md).
 
 **Install Steps**
 ```bash
-  1: Take the pantry.html and insert it into WWW (root or wherever you prefer)
+  1: Place pantry_tracker in /addons
   
-  2: Create a Long Live Access Token (Profile > Security > Long Live Access Token)
-
-  3: Update pantry.html (const homeAssistantToken & const baseUrl) to your own variables.
-
-  4: Encode HTML file using https://pagecrypt.maxlaumeister.com/
- 
-  5: Place encrypted HTML file back in WWW and remove original pantry.html
+  2: Start the addon
 ``` 
- ** *Note, this is not guaranteed secure in anyway shape or form* **
+ 
 
 ## Screenshots & Video
 
-<details>
-<summary>Open Screenshots</summary>
-<br>
+
+ 
+![Early Preview](screenshots/Demo.gif)
+
+![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/demo.gif?raw=true)
+
+
+
+# Roadmap
+```bash
+  > Provide an option to delete items (currently not functional)
   
-![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/Main.png?raw=true)
+  > Integrate with UPC/EAN Database
 
-![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/generate.png?raw=true)
-
-![App Screenshot](https://github.com/mintcreg/simple_pantry/blob/main/screenshots/edit.png?raw=true)
-<br><br>
-
-<details>
-<summary>Open Video</summary>
-<br>
-  
-
-https://github.com/user-attachments/assets/ec9a6066-6dd5-4468-8fb8-be37ace017fd
+  > Provide functionality for barcode scanning to add/remove/increase/decrease quantities
+``` 
 
 
 
-<br><br>
