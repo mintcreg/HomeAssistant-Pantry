@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pantry Manager</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Pantry Manager</h1>
+
+    <div class="category-buttons">
+        <button onclick="showTab('home')">Home</button>
+        <button onclick="showTab('generate')">Config</button>
+    </div>
+
+    <!-- Home Tab -->
+    <div id="home-container">
+        <div id="categories-container"></div>
+    </div>
+
+    <!-- Generate Tab -->
+    <div id="generate-container" class="hidden">
+        <h2>Create Categories and Products</h2>
+        <div class="generate-form">
+            <div class="form-section">
+                <h3>Categories</h3>
+                <div id="category-rows"></div>
+                <button class="add-row-btn" onclick="addCategoryRow()">Add Category</button>
+            </div>
+            <div class="form-section">
+                <h3>Products</h3>
+                <div id="product-rows"></div>
+                <button class="add-row-btn" onclick="addProductRow()">Add Product</button>
+            </div>
+        </div>
+        <button class="generate-btn" onclick="saveEntities()">Save</button>
+    </div>
+
+</div>
+
+<!-- Include the script at the end of the body -->
+<script src="static/app.js"></script>
+</body>
+</html>

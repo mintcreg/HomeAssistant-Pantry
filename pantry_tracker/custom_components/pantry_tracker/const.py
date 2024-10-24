@@ -1,0 +1,1 @@
+DOMAIN = 'pantry_tracker'

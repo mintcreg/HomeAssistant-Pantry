@@ -1,0 +1,25 @@
+{
+  "name": "Pantry Tracker",
+  "version": "1.0.41",
+  "slug": "pantry_tracker",
+  "description": "An add-on to track pantry items",
+  "startup": "services",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "boot": "auto",
+  "ingress": true,
+  "ingress_port": 5000,
+  "homeassistant_api": true,
+  "hassio_api": true,
+  "options": {},
+  "schema": {},
+  "ports": {},
+  "host_network": false,
+  "init": false,
+  "build_from": {
+    "aarch64": "ghcr.io/home-assistant/aarch64-base-python:3.10-alpine3.17",
+    "amd64": "ghcr.io/home-assistant/amd64-base-python:3.10-alpine3.17",
+    "armhf": "ghcr.io/home-assistant/armhf-base-python:3.10-alpine3.17",
+    "armv7": "ghcr.io/home-assistant/armv7-base-python:3.10-alpine3.17",
+    "i386": "ghcr.io/home-assistant/i386-base-python:3.10-alpine3.17"
+  }
+}

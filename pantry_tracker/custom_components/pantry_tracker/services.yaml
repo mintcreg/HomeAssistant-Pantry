@@ -1,0 +1,14 @@
+set_item:
+  description: Set or update a pantry item
+  fields:
+    entity_id:
+      description: The entity ID of the pantry item
+      example: pantry_tracker.apple
+    state:
+      description: The state of the pantry item
+      example: '5'
+    attributes:
+      description: Attributes to set on the pantry item
+      example:
+        friendly_name: "Apple"
+        product_image: "http://example.com/apple.jpg"
