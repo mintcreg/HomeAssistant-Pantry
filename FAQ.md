@@ -2,10 +2,11 @@
 ## FAQ
 
 #### Can I use a barcode scanner?
-*No, this purely uses the HA API via HTML as we're limited to JS/HTML from the WWW directory*
+
+*No, this is something I'm planning in the future but right now this is at the bottom of the list*
 
 #### Something is broken?
 
-*It's my first ever project, bear with me!*
+*It's my first ever project and I'm actively learning JS/Python, bear with me!*
 
 
