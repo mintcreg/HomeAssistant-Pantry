@@ -1,6 +1,7 @@
 # HomeAssistant Pantry
 
-# ***NOTE THIS IS A WIP ***
+> [!WARNING]
+> This repo has been archived - New project at [https://github.com/mintcreg/pantry_tracker](https://github.com/mintcreg/pantry_tracker).
 
 # Description
 This addon allows you to maintain products for your kitchen/pantry or whatever your use case may be. This utilised the HA API to create entities (which will be your products).
